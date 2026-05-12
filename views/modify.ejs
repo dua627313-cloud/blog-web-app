@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title><%= post ? "Edit Post" : "New Post" %></title>
+</head>
+<body>
+    <form action="<%= post ? "/posts/edit/" + post.id  : "/posts/new"%>" method= "post" class= "edit-new-form"> 
+        <h1 class="edit-new-heading"><%= post ? "Edit a Post" : "Create new Post" %></h1>
+        <label for="title" class="title-label">Title</label>
+        <input type="text" name="title" class="edit-new-title" value="<%= post ? post.title : "" %>">
+        <label for="content" class="content-label">Write your post here:</label>
+        <input type="text" name = "content" class="edit-new-content" value = "<%= post ? post.content : "" %>">
+        <label for="author" class="author-label">Author Name</label>
+        <input type="text" name = "author" class="edit-new-author" value = "<%= post ? post.author : "" %>">
+        <button type="submit" class="new-form-submit-btm"><%= post ? "Update Post" : "Create Post" %></button>
+    </form>
+    <button class="back-to-home-btn"><a href="/">Back to Home Page</a></button>
+</body>
+</html>
